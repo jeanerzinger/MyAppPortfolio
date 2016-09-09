@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,62 +20,19 @@ public class MainActivity extends AppCompatActivity {
         final Button btGoUbiquitous = (Button) findViewById(R.id.btGoUbiquitous);
         final Button btCapstone = (Button) findViewById(R.id.btCapstone);
 
-
-        btPopularMovies.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btPopularMovies.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
-        btStockHawk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btStockHawk.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-
-            }
-        });
-
-        btBuildItBigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btBuildItBigger.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
-        btMakeYourAppMaterial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btMakeYourAppMaterial.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
-        btGoUbiquitous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btGoUbiquitous.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
-        btCapstone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Esse botão vai abrir meu " +
-                        btCapstone.getText() + " app!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
+        btPopularMovies.setOnClickListener(this);
+        btStockHawk.setOnClickListener(this);
+        btBuildItBigger.setOnClickListener(this);
+        btMakeYourAppMaterial.setOnClickListener(this);
+        btGoUbiquitous.setOnClickListener(this);
+        btCapstone.setOnClickListener(this);
 
     }
 
 
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(this, "This button will launch my " + ((Button) v).getText()
+                + " app!", Toast.LENGTH_SHORT).show();
+    }
 }
